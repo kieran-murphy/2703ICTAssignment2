@@ -15,8 +15,12 @@
 
     <form method="POST" action='{{url("product")}}'>
         {{csrf_field()}}
-        <p><label>Name: </label><input type="text" name="name" value="{{ old('name') }}"></p>
-        <p><label>Price: </label><input type="text" name="price" value="{{ old('price') }}"></p>
+        <p><label>Name: </label>
+        <input type="text" name="name" value="{{ old('name') }}"></p>
+        <p><label>Price: </label>
+        <input type="text" name="price" value="{{ old('price') }}"></p>
+        <p><label>URL: </label>
+        <input type="text" name="url" value="{{ old('url') }}"></p>
         <p><select name="manufacturer">
             @foreach ($manufacturers as $manufacturer)
                 @if($manufacturer->id==old('manufacturer'))

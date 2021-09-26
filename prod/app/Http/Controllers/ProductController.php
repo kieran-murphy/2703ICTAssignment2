@@ -47,12 +47,14 @@ class ProductController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
+            'url' => 'nullable|max:255',
             'manufacturer' => 'exists:manufacturers,id'
         ]);
 
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->url = $request->url;
         $product->manufacturer_id = $request->manufacturer;
         $product->save();
         return redirect(url("product/$product->id"));
@@ -94,6 +96,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->url = $request->url;
         $product->manufacturer_id = $request->manufacturer;
         $product->save();
         return redirect(url("product/$product->id"));

@@ -43,6 +43,14 @@
   box-sizing: border-box;
 }
 
+.tablediv {
+  width: 50%;
+}
+
+.content {
+  margin: 3rem;
+}
+
 th {
   font-size: 1.1rem;
   font-weight: bold;

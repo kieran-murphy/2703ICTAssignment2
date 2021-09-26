@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url("product")}}">Home</a>
+          <a class="nav-link" aria-current="page" href="{{url("product")}}">Home</a>
         </li>
         @auth
         <li class="nav-item">
@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">{{Auth::user()->name}}</a>
+          <a class="nav-link" href="">{{Auth::user()->name}} ({{Auth::user()->type}})</a>
         </li>
 
         <li class="nav-item">
@@ -43,8 +43,9 @@
 
 
 <br>
-
+<div class="content">
 @yield('content')
+</div>
 </body>
 </html>
 

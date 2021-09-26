@@ -5,6 +5,7 @@
 @section('content')
     <h1>{{$product->name}}</h1>
     <p>{{$product->price}}</p>
+    <p>{{$product->url}}</p>
     <p>{{$product->manufacturer->name}}</p>
     @auth
     <p><a href='{{url("product/$product->id/edit")}}'>Edit</a></p>

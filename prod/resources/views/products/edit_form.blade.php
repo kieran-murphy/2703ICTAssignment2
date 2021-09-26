@@ -12,7 +12,7 @@
         <input type="text" name="price" value="{{$product->price}}"></p>
         <p><select name="manufacturer">
             @foreach ($manufacturers as $manufacturer)
-                @if($manufacturer->id === $product->manufacturer_id)
+                @if($manufacturer->id == $product->manufacturer_id)
                     <option value="{{$manufacturer->id}}" selected="selected">{{$manufacturer->name}}</option>
                 @else
                     <option value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
