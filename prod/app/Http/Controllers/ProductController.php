@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manufacturer;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -68,8 +69,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $reviews = Review::all();
         $product = Product::find($id);
-        return view('products.show')->with('product', $product);
+        return view('products.show')->with('product', $product)->with('reviews', $reviews);
     }
 
     /**

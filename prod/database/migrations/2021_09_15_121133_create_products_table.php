@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->unsignedBigInteger('manufacturer_id');
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
             $table->timestamps();

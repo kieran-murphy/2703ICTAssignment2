@@ -4,9 +4,17 @@
 @endsection
 @section('content')
     <h1>{{$product->name}}</h1>
-    <p>{{$product->price}}</p>
-    <p>{{$product->url}}</p>
-    <p>{{$product->manufacturer->name}}</p>
+    <p>Price: {{$product->price}}</p>
+    <p>URL: {{$product->url}}</p>
+    <p>Manufacturer: {{$product->manufacturer->name}}</p>
+    <br>
+    <h1>Reviews</h1>
+    @foreach ($reviews as $review)
+        @if ($review->product_id == $product->id)
+        <p>{{$review->rating}} - {{$review->review}}</p>
+        @endif
+    @endforeach
+
     @auth
     <p><a href='{{url("product/$product->id/edit")}}'>Edit</a></p>
     <p>
