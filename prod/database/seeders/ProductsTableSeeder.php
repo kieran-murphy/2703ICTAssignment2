@@ -55,5 +55,26 @@ class ProductsTableSeeder extends Seeder
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
+        DB::table('products')->insert([
+            'name' => 'Galaxy s54',
+            'price' => 2222,
+            'url' => 'test.com',
+            'manufacturer_id' => 3,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Galaxy s55',
+            'price' => 2222,
+            'url' => 'test.com',
+            'manufacturer_id' => 3,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Galaxy s56',
+            'price' => 2222,
+            'url' => 'test.com',
+            'manufacturer_id' => 3,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
     }
 }

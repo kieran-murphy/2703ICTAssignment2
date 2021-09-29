@@ -30,8 +30,10 @@
             <!-- Type -->
             <div class="mt-4">
                 <x-label for="type" :value="__('Type')" />
-
-                <x-input id="type" class="block mt-1 w-full" type="type" name="type" :value="old('type')" required />
+                <select id="type" name="type" type="type" required>
+                    <option value="Member">Member</option>
+                    <option value="Moderator">Moderator</option>
+                </select>
             </div>
 
             <!-- Password -->

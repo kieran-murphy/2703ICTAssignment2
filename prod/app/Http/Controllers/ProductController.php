@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function index()
     {
         //$products = Product::all();
-        $products = Product::paginate(4);
+        $products = Product::paginate(5);
         return view('products.index')->with('products', $products);
     }
 
@@ -95,6 +95,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+            'url' => 'nullable|max:255',
+            'manufacturer' => 'exists:manufacturers,id'
+        ]);
+        
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
@@ -113,7 +120,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::where('id', $id)->delete();
-        $products = Product::all();
-        return view('products.index')->with('products', $products);
+        return redirect(url("product"));
     }
 }
