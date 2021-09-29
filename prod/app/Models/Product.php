@@ -13,4 +13,8 @@ class Product extends Model
     function manufacturer() {
         return $this->belongsTo('App\Models\Manufacturer');
     }
+
+    function reviews() {
+        return $this->hasMany('App\Models\Reviews'); 
+    }
 }

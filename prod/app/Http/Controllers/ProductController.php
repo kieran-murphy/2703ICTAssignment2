@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Manufacturer;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductController extends Controller
 {
@@ -22,8 +24,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //$products = Product::all();
-        $products = Product::paginate(5);
+        $products = Product::all();
+        //$products = Product::paginate(5);
         return view('products.index')->with('products', $products);
     }
 
@@ -69,9 +71,26 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $reviews = Review::all();
+        $users = User::all();
+        //$reviews = Review::all();
+        $reviews = Review::paginate(5);
         $product = Product::find($id);
-        return view('products.show')->with('product', $product)->with('reviews', $reviews);
+        /*
+        $matchedreviews = [];
+        foreach ($reviews as $review) {
+            if ($review->product_id == $product->id) {
+                $matchedreviews[] = $review;
+            }
+        }
+        
+        $total = count($matchedreviews);
+        $perPage = 2; // How many items do you want to display.
+        $currentPage = 1; // The index page.
+        $paginator = new LengthAwarePaginator($matchedreviews, $total, $perPage, $currentPage); */
+          
+
+        
+        return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
 
     /**

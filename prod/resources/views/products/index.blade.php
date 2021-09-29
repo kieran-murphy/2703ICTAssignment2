@@ -8,5 +8,5 @@
         <a href='{{url("product/$product->id")}}'><li>{{ $product->name }}</li></a>
     @endforeach
 </ul>
-{{ $products->links()}}
+
 @endsection

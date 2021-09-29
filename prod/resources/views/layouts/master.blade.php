@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">{{Auth::user()->id}}.{{Auth::user()->name}} ({{Auth::user()->type}})</a>
+          <a class="nav-link" href="">{{Auth::user()->name}} ({{Auth::user()->type}})</a>
         </li>
 
         <li class="nav-item">

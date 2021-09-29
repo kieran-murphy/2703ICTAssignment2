@@ -27,10 +27,15 @@
     <h1>Reviews</h1>
     @foreach ($reviews as $review)
         @if ($review->product_id == $product->id)
-        <p>{{$review->user_id}}: {{$review->rating}} - {{$review->review}}</p>
+        @foreach ($users as $user)
+                @if ($user->id == $review->user_id)
+                    <p>{{$user->name}}: {{$review->rating}} - {{$review->review}} 👍 {{$review->likes}} | 👎 {{$review->dislikes}}</p>
+                @endif
+            @endforeach
         @endif
+        
     @endforeach
-
+    {{ $reviews->links()}}
     <p><a href='{{url("reviews/create")}}'>Add Review</a></p>
 
     

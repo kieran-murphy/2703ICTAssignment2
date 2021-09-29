@@ -39,6 +39,8 @@ class ReviewsController extends Controller
         $review->review = $request->review;
         $review->user_id = $request->user;
         $review->product_id = $request->product;
+        $review->likes = 0;
+        $review->dislikes = 0;
         $review->save();
         return redirect(url("product/$review->product_id"));
     } 
