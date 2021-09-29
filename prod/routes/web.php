@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\User;
@@ -30,6 +31,8 @@ route::get('/logoutcheck', function(){
 });
 
 Route::resource('product', ProductController::class);
+
+Route::resource('reviews', ReviewsController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
