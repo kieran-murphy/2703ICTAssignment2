@@ -30,6 +30,8 @@ route::get('/logoutcheck', function(){
     return view('products.logoutcheck');
 });
 
+Route::get('/product/{id}/show_reviews', [ProductController::class, 'show_reviews']);
+
 Route::resource('product', ProductController::class);
 
 Route::resource('reviews', ReviewsController::class);

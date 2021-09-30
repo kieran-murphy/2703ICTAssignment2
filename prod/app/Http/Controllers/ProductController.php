@@ -143,4 +143,13 @@ class ProductController extends Controller
         Product::where('id', $id)->delete();
         return redirect(url("product"));
     }
+
+    public function show_reviews(Request $request, $id)
+    {
+        $users = User::all();
+        $reviews = Review::all();
+        $product = Product::find($id);
+        
+        return view('products.show_review')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
+    }
 }
