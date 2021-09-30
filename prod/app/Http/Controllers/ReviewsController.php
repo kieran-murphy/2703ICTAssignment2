@@ -44,4 +44,17 @@ class ReviewsController extends Controller
         $review->save();
         return redirect(url("product/$review->product_id"));
     } 
+
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $review = Review::find($id);
+        return view('products.show_review')->with('review', $review);
+    }
 }

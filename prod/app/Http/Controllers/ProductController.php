@@ -72,8 +72,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $users = User::all();
-        //$reviews = Review::all();
-        $reviews = Review::paginate(5);
+        $reviews = Review::all();
+        //$reviews = Review::paginate(5);
         $product = Product::find($id);
         /*
         $matchedreviews = [];
@@ -92,6 +92,8 @@ class ProductController extends Controller
         
         return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.

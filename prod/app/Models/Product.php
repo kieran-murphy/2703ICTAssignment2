@@ -15,6 +15,6 @@ class Product extends Model
     }
 
     function reviews() {
-        return $this->hasMany('App\Models\Reviews'); 
+        return $this->hasMany('App\Models\Review'); 
     }
 }
