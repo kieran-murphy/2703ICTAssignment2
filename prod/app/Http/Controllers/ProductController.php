@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
 
     function __construct(){
-        $this->middleware('auth', ['except'=>[ 'index', 'show' ]]);
+        $this->middleware('auth', ['except'=>[ 'index', 'show', 'show_reviews' ]]);
     }
     
 
@@ -150,6 +150,6 @@ class ProductController extends Controller
         $reviews = Review::all();
         $product = Product::find($id);
         
-        return view('products.show_review')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
+        return view('products.show_review_list')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
 }

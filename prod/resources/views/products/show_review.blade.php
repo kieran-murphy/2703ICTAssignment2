@@ -4,20 +4,44 @@
 @endsection
 @section('content')
 
-@foreach ($reviews as $review)
-    @if ($review->product_id == $product->id)
-    @foreach ($users as $user)
-            @if ($user->id == $review->user_id)
-                <p><a href='{{url("review/$review->id")}}'>{{$user->name}}: {{$review->rating}} - {{$review->review}} 👍 {{$review->likes}} | 👎 {{$review->dislikes}}</a></p> 
-            @endif
-        @endforeach
-    @endif
+@foreach ($users as $user)
+    @if ($user->id == $review->user_id)
+        <h1>{{$user->name}}</h1>
+    @endif 
 @endforeach
-{{-- $reviews->links() --}} 
-<p><a href='{{url("reviews/create")}}'>Add Review</a></p>
+    <br>
     
-    
-    
-    
-    
+    <div class="tablediv">
+    <table class="table table-striped table-hover table-bordered">
+    <tbody>
+        <tr>
+        <th>Review</th>
+        <td>{{$review->review}}</td>
+        
+        </tr>
+        <tr>
+        <th>Rating</th>
+        <td>{{$review->rating}}</td>
+
+        <tr>
+        <th>Created</th>
+        <td>{{$review->created_at}}</td>
+        
+        </tr>
+        
+        </tr>
+        <tr>
+        <th>👍</th>
+        <td>{{$review->likes}}</td>
+        </tr>
+
+        <tr>
+        <th>👎</th>
+        <td>{{$review->dislikes}}</td>
+        </tr>
+        
+    </tbody>
+    </table>
+    </div>
+
 @endsection

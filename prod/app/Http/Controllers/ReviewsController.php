@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Manufacturer;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReviewsController extends Controller
@@ -55,6 +56,8 @@ class ReviewsController extends Controller
     public function show($id)
     {
         $review = Review::find($id);
-        return view('products.show_review')->with('review', $review);
+        $users = User::all();
+        
+        return view('products.show_review')->with('review', $review)->with('users', $users);
     }
 }
