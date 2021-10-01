@@ -91,4 +91,20 @@ class ReviewsController extends Controller
         $review->save();
         return redirect(url("reviews/$review->id"));
     }
+
+    public function like($id)
+    {
+        $review = Review::find($id);
+        $review->likes += 1;
+        $review->save();
+        return redirect(url("reviews/$review->id"));
+    }
+
+    public function dislike($id)
+    {
+        $review = Review::find($id);
+        $review->dislikes += 1;
+        $review->save();
+        return redirect(url("reviews/$review->id"));
+    }
 }

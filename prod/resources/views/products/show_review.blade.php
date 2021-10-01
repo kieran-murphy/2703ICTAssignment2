@@ -30,19 +30,23 @@
         </tr>
         
         </tr>
+        
         <tr>
-        <th>👍</th>
+        <th><a href='{{url("reviews/$review->id/like")}}'>👍</a></th>
         <td>{{$review->likes}}</td>
         </tr>
+        
 
         <tr>
-        <th>👎</th>
+        <th><a href='{{url("reviews/$review->id/dislike")}}'>👎</a></th>
         <td>{{$review->dislikes}}</td>
         </tr>
         
     </tbody>
     </table>
     </div>
+
+    
 
     @auth
     <br>
