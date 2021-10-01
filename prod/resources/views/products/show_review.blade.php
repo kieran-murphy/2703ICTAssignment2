@@ -44,4 +44,11 @@
     </table>
     </div>
 
+    @auth
+    <br>
+    <p><a href='{{url("reviews/$review->id/edit")}}'>Edit</a></p>
+    
+    
+    @endauth
+
 @endsection

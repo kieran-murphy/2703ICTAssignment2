@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Products
+    {{$product->name}}
 @endsection
 @section('content')
     <h1>{{$product->name}}</h1>

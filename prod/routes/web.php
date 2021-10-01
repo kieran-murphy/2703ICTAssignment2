@@ -36,6 +36,9 @@ Route::resource('product', ProductController::class);
 
 Route::get('/reviews/{id}/show', [ReviewsController::class, 'show']);
 
+//Route::post('/reviews/{id}/edit', [ReviewsController::class, 'edit']);
+
+
 Route::resource('reviews', ReviewsController::class);
 
 Route::get('/dashboard', function () {

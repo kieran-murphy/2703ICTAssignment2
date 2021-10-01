@@ -60,4 +60,35 @@ class ReviewsController extends Controller
         
         return view('products.show_review')->with('review', $review)->with('users', $users);
     }
+
+    public function edit($id)
+    {
+        $review = Review::find($id);
+        return view('products.edit_review_form')->with('review', $review)->with('products', Product::all());
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'rating' => 'required|numeric|max:5',
+            'review' => 'required|max:255',
+            'user' => 'exists:users,id',
+            'product' => 'exists:products,id'
+        ]);
+        
+        $review = Review::find($id);
+        $review->rating = $request->rating;
+        $review->review = $request->review;
+        //$review->user_id = $request->user;
+        $review->product_id = $request->product;
+        $review->save();
+        return redirect(url("reviews/$review->id"));
+    }
 }
