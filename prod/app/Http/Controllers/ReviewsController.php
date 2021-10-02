@@ -92,6 +92,12 @@ class ReviewsController extends Controller
         return redirect(url("reviews/$review->id"));
     }
 
+    public function destroy($id)
+    {
+        Review::where('id', $id)->delete();
+        return redirect(url("product"));
+    }
+
     public function like($id)
     {
         $review = Review::find($id);

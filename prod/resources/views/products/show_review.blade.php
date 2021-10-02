@@ -6,7 +6,7 @@
 
 @foreach ($users as $user)
     @if ($user->id == $review->user_id)
-        <h1>{{$user->name}}</h1>
+        <h1><a href='{{url("product/$review->product_id/show_reviews")}}'><- </a>{{$user->name}}</h1>
     @endif 
 @endforeach
     <br>
@@ -51,7 +51,13 @@
     @auth
     <br>
     <p><a href='{{url("reviews/$review->id/edit")}}'>Edit</a></p>
-    
+    <p>
+        <form method="POST" action='{{url("reviews/$review->id")}}'>
+            {{csrf_field()}}
+            {{ method_field('DELETE') }}
+            <input type="submit" value="Delete">
+        </form>
+    </p>
     
     @endauth
 

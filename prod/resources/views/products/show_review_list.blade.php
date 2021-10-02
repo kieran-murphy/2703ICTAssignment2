@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<h1>{{$product->name}} - Reviews</h1>
+<h1><a href='{{url("product/$product->id")}}'>{{ $product->name }}</a> - Reviews</h1>
 <br>
 
 <div class="tablediv">
