@@ -15,9 +15,10 @@ class ReviewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('products.create_review_form')->with('products', Product::all());
+        $productone = Product::find($id);
+        return view('products.create_review_form')->with('products', Product::all())->with('productone', $productone);
     }
 
     /**

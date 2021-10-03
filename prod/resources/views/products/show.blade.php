@@ -23,6 +23,11 @@
         <th>Manufacturer</th>
         <td>{{$product->manufacturer->name}}</td>
         </tr>
+
+        <tr>
+        <th>Image</th>
+        <td><img src="{{url($product->image)}}" alt="{{url($product->image)}}" style="width: 300px; height: 300px;"></td>
+        </tr>
         
     </tbody>
     </table>
@@ -44,7 +49,7 @@
     
     
     <br>
-    <h1><a href='{{url("product/$product->id/show_reviews")}}'>Reviews</a></h1>
+    <h1><a href='{{url("product/$product->id/show_reviews")}}'>Reviews - {{$product->reviews->count()}}</a></h1>
     
 
     

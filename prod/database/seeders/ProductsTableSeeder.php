@@ -17,6 +17,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'iPad Pro 9',
             'price' => 1234,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 1,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -24,6 +25,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Surface 23',
             'price' => 1111,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 2,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -31,6 +33,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s50',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -38,6 +41,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s51',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -45,6 +49,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s52',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -52,6 +57,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s53',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -59,6 +65,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s54',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -66,6 +73,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s55',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -73,6 +81,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s56',
             'price' => 2222,
             'url' => 'test.com',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);

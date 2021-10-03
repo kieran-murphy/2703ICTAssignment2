@@ -28,9 +28,10 @@
 </div>
 <br>
 
+@auth
 {{-- $reviews->links() --}} 
-<p><a href='{{url("reviews/create")}}'>Add Review</a></p>
-    
+<p><a href='{{url("reviews/$product->id/create")}}'>Add Review</a></p>
+@endauth
     
     
     

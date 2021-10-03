@@ -22,7 +22,7 @@
         <input type="text" name="review" value="{{ old('review') }}"></p>
         <p><select name="product">
             @foreach ($products as $product)
-                @if($product->id==old('product'))
+                @if($product->id==$productone->id)
                     <option value="{{$product->id}}" selected="selected">{{$product->name}}</option>
                 @else
                     <option value="{{$product->id}}">{{$product->name}}</option>

@@ -26,6 +26,18 @@ route::get('/test', function(){
     dd($prods);
 });
 
+route::get('/test2', function(){
+    $product = Product::find(4);
+    $reviews = $product->reviews;
+    $totallikes = 0;
+    $totaldislikes = 0;
+    foreach ($reviews as $review) {
+        $totallikes += $review->likes;
+        $totaldislikes += $review->dislikes;
+      }
+    dd($totallikes);
+});
+
 route::get('/logoutcheck', function(){
     return view('products.logoutcheck');
 });
@@ -38,6 +50,7 @@ Route::get('/reviews/{id}/show', [ReviewsController::class, 'show']);
 
 //Route::post('/reviews/{id}/edit', [ReviewsController::class, 'edit']);
 
+Route::get('/reviews/{id}/create', [ReviewsController::class, 'create']);
 Route::get('/reviews/{id}/like', [ReviewsController::class, 'like']);
 Route::get('/reviews/{id}/dislike', [ReviewsController::class, 'dislike']);
 

@@ -36,6 +36,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        
         return view('products.create_form')->with('manufacturers', Manufacturer::all());
     }
 
@@ -54,10 +55,12 @@ class ProductController extends Controller
             'manufacturer' => 'exists:manufacturers,id'
         ]);
 
+        $image_store = request()->file('image')->store('products_images', 'public');
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->url = $request->url;
+        $product->image = $image_store;
         $product->manufacturer_id = $request->manufacturer;
         $product->save();
         return redirect(url("product/$product->id"));
@@ -75,6 +78,14 @@ class ProductController extends Controller
         $reviews = Review::all();
         //$reviews = Review::paginate(5);
         $product = Product::find($id);
+        $reviews = $product->reviews;
+        $totallikes = 0;
+        $totaldislikes = 0;
+        foreach ($reviews as $review) {
+            $totallikes += $review->likes;
+            $totaldislikes += $review->dislikes;
+        }
+        
         /*
         $matchedreviews = [];
         foreach ($reviews as $review) {
@@ -90,7 +101,7 @@ class ProductController extends Controller
           
 
         
-        return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
+        return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users)->with('totaldislikes', $totaldislikes)->with('totallikes', $totallikes);
     }
 
     
@@ -123,10 +134,12 @@ class ProductController extends Controller
             'manufacturer' => 'exists:manufacturers,id'
         ]);
         
+        $image_store = request()->file('image')->store('products_images', 'public');
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
         $product->url = $request->url;
+        $product->image = $image_store;
         $product->manufacturer_id = $request->manufacturer;
         $product->save();
         return redirect(url("product/$product->id"));
@@ -149,7 +162,6 @@ class ProductController extends Controller
         $users = User::all();
         $reviews = Review::all();
         $product = Product::find($id);
-        
         return view('products.show_review_list')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
 }
