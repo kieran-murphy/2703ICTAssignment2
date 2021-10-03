@@ -13,7 +13,13 @@
             @if ($review->product_id == $product->id)
             @foreach ($users as $user)
                     @if ($user->id == $review->user_id)
+                        @if ($review->likes > $review->dislikes)
+                        <a href='{{url("reviews/$review->id/show")}}' class="list-group-item list-group-item-success">{{$user->name}}: {{$review->rating}} - {{$review->review}} 👍 {{$review->likes}} | 👎 {{$review->dislikes}}</a>
+                        @elseif ($review->likes < $review->dislikes)
+                        <a href='{{url("reviews/$review->id/show")}}' class="list-group-item list-group-item-danger">{{$user->name}}: {{$review->rating}} - {{$review->review}} 👍 {{$review->likes}} | 👎 {{$review->dislikes}}</a>
+                        @else ($review->likes == $review->dislikes)
                         <a href='{{url("reviews/$review->id/show")}}' class="list-group-item list-group-item-action">{{$user->name}}: {{$review->rating}} - {{$review->review}} 👍 {{$review->likes}} | 👎 {{$review->dislikes}}</a>
+                        @endif
                     @endif
                 @endforeach
             @endif
