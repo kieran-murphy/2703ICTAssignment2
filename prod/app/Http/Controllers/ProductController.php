@@ -52,6 +52,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'url' => 'nullable|max:255',
+            'image' => 'required|max:255',
             'manufacturer' => 'exists:manufacturers,id'
         ]);
 
@@ -153,6 +154,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        Review::where('product_id', $id)->delete();
         Product::where('id', $id)->delete();
         return redirect(url("product"));
     }
@@ -160,8 +162,10 @@ class ProductController extends Controller
     public function show_reviews(Request $request, $id)
     {
         $users = User::all();
-        $reviews = Review::all();
         $product = Product::find($id);
+        $reviews = Review::where('product_id', '=', $id)->paginate(5);
+        //$reviews = Review::paginate(5);
+        
         return view('products.show_review_list')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
 }

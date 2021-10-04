@@ -10,7 +10,7 @@
 <div class="tablediv">
     <div class="list-group">
         @foreach ($reviews as $review)
-            @if ($review->product_id == $product->id)
+            
             @foreach ($users as $user)
                     @if ($user->id == $review->user_id)
                         @if ($review->likes > $review->dislikes)
@@ -22,14 +22,14 @@
                         @endif
                     @endif
                 @endforeach
-            @endif
+            
         @endforeach
     </div>
 </div>
 <br>
-
+{{ $reviews->links() }} 
 @auth
-{{-- $reviews->links() --}} 
+
 <p><a href='{{url("reviews/$product->id/create")}}'>Add Review</a></p>
 @endauth
     
