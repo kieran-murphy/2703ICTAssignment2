@@ -14,23 +14,44 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => "Bob",
-            'email' => "Bob@gmail.com",
+            'name' => "Moderator",
+            'email' => "Moderator@a.org",
             'type' => "Moderator",
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('1234'),
 
         ]);
         DB::table('users')->insert([
-            'name' => "Fred",
-            'email' => "Fred@gmail.com",
-            'type' => "Member",
-            'password' => bcrypt('123456'),
+            'name' => "Chris",
+            'email' => "Chris@a.org",
+            'type' => "Moderator",
+            'password' => bcrypt('1234'),
+
         ]);
         DB::table('users')->insert([
-            'name' => "John",
-            'email' => "John@gmail.com",
-            'type' => "Guest",
-            'password' => bcrypt('123456'),
+            'name' => "Member",
+            'email' => "Member@a.org",
+            'type' => "Member",
+            'password' => bcrypt('1234'),
+
+        ]);
+        DB::table('users')->insert([
+            'name' => "Cara",
+            'email' => "Cara@a.org",
+            'type' => "Member",
+            'password' => bcrypt('1234'),
+
+        ]);
+        DB::table('users')->insert([
+            'name' => "Bob",
+            'email' => "Bob@a.org",
+            'type' => "Member",
+            'password' => bcrypt('1234'),
+        ]);
+        DB::table('users')->insert([
+            'name' => "Fred",
+            'email' => "Fred@a.org",
+            'type' => "Member",
+            'password' => bcrypt('1234'),
         ]);
     }
 }

@@ -15,6 +15,7 @@
           <a class="nav-link" aria-current="page" href="{{url("product")}}">Home</a>
         </li>
         @auth
+        
         <li class="nav-item">
           <a class="nav-link" href="{{url("product/create")}}">Create</a>
         </li>

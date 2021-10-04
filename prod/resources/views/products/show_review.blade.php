@@ -45,10 +45,10 @@
     </tbody>
     </table>
     </div>
-
     
 
     @auth
+    @if (Auth::user()->type == 'Moderator' || Auth::user()->id == $review->user_id)
     <br>
     <p><a href='{{url("reviews/$review->id/edit")}}'>Edit</a></p>
     <p>
@@ -58,7 +58,7 @@
             <input type="submit" value="Delete">
         </form>
     </p>
-    
+    @endif
     @endauth
 
 @endsection

@@ -16,7 +16,7 @@
         </tr>
         <tr>
         <th>URL</th>
-        <td>{{$product->url}}</td>
+        <td><a href="{{$product->url}}" target="_blank">{{$product->url}}</a></td>
         
         </tr>
         <tr>
@@ -35,6 +35,7 @@
     
     
     @auth
+    @if (Auth::user()->type == 'Moderator')
     <br>
     <p><a href='{{url("product/$product->id/edit")}}'>Edit</a></p>
     <p>
@@ -44,6 +45,7 @@
             <input type="submit" value="Delete">
         </form>
     </p>
+    @endif
     @endauth
     
     

@@ -47,4 +47,13 @@ class User extends Authenticatable
     function products(){
         return $this->belongsToMany('App\Models\Product', 'orders');
     }
+
+    public function hasAnyRole($role)
+    {
+        if ($this->role === $role){
+            return TRUE;
+        } else {
+            return null;
+        }
+    }
 }

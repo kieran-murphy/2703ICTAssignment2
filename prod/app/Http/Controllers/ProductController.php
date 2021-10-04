@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -25,8 +25,14 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        //$products = Product::paginate(5);
         return view('products.index')->with('products', $products);
+        /*
+        if(Gate::allows('is-moderator')){
+            dd('success');
+        } else {
+            dd('no');
+        }
+        */
     }
 
     /**
@@ -77,7 +83,6 @@ class ProductController extends Controller
     {
         $users = User::all();
         $reviews = Review::all();
-        //$reviews = Review::paginate(5);
         $product = Product::find($id);
         $reviews = $product->reviews;
         $totallikes = 0;
@@ -86,21 +91,6 @@ class ProductController extends Controller
             $totallikes += $review->likes;
             $totaldislikes += $review->dislikes;
         }
-        
-        /*
-        $matchedreviews = [];
-        foreach ($reviews as $review) {
-            if ($review->product_id == $product->id) {
-                $matchedreviews[] = $review;
-            }
-        }
-        
-        $total = count($matchedreviews);
-        $perPage = 2; // How many items do you want to display.
-        $currentPage = 1; // The index page.
-        $paginator = new LengthAwarePaginator($matchedreviews, $total, $perPage, $currentPage); */
-          
-
         
         return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users)->with('totaldislikes', $totaldislikes)->with('totallikes', $totallikes);
     }
@@ -164,8 +154,7 @@ class ProductController extends Controller
         $users = User::all();
         $product = Product::find($id);
         $reviews = Review::where('product_id', '=', $id)->paginate(5);
-        //$reviews = Review::paginate(5);
-        
+
         return view('products.show_review_list')->with('product', $product)->with('reviews', $reviews)->with('users', $users);
     }
 }
