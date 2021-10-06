@@ -29,13 +29,7 @@ route::get('/test', function(){
 route::get('/test2', function(){
     $product = Product::find(4);
     $reviews = $product->reviews;
-    $totallikes = 0;
-    $totaldislikes = 0;
-    foreach ($reviews as $review) {
-        $totallikes += $review->likes;
-        $totaldislikes += $review->dislikes;
-      }
-    dd($totallikes);
+    dd($reviews);
 });
 
 route::get('/logoutcheck', function(){

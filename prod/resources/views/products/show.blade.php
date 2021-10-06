@@ -16,7 +16,7 @@
         </tr>
         <tr>
         <th>URL</th>
-        <td><a href="{{$product->url}}" target="_blank">{{$product->url}}</a></td>
+        <td><a href="https://{{$product->url}}" target="_blank">{{$product->url}}</a></td>
         
         </tr>
         <tr>

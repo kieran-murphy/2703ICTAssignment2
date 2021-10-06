@@ -125,7 +125,7 @@ class ProductController extends Controller
             'manufacturer' => 'exists:manufacturers,id'
         ]);
         
-        $image_store = request()->file('image')->store('products_images', 'public');
+        $image_store = request()->file('image')->store('products_images','/Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/storage/app/public');
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;

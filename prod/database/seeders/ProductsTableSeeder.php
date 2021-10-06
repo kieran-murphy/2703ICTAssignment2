@@ -16,8 +16,8 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'iPad Pro 9',
             'price' => 1234,
-            'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'url' => 'google.com',
+            'image' => 'https://kravmaganewcastle.com.au/wp-content/uploads/2017/04/default-image-620x600.jpg',
             'manufacturer_id' => 1,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
