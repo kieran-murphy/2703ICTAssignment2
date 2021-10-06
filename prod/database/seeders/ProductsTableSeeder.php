@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'iPad Pro 9',
             'price' => 1234,
             'url' => 'google.com',
-            'image' => 'https://kravmaganewcastle.com.au/wp-content/uploads/2017/04/default-image-620x600.jpg',
+            'image' => 'products_images/default.png',
             'manufacturer_id' => 1,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);

@@ -95,8 +95,6 @@ class ProductController extends Controller
         return view('products.show')->with('product', $product)->with('reviews', $reviews)->with('users', $users)->with('totaldislikes', $totaldislikes)->with('totallikes', $totallikes);
     }
 
-    
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -125,7 +123,8 @@ class ProductController extends Controller
             'manufacturer' => 'exists:manufacturers,id'
         ]);
         
-        $image_store = request()->file('image')->store('products_images','/Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/storage/app/public');
+        //$image_store = request()->file('image')->store('/Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/public/products_images');
+        $image_store = request()->file('image')->store('', 'public');
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;

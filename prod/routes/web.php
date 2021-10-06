@@ -5,6 +5,7 @@ use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,29 @@ use App\Models\User;
 
 Route::get('/', [ProductController::class, 'index']);
 
+
+
+
 route::get('/test', function(){
-    $user = User::find(1);
-    $name = 'iPad';
-    $prods = $user->products()->whereRaw('name like ?', array("%$name%"))->get();
-    dd($prods);
+    $products = Product::all();
+    $name = 'chamudi';
+    $review_ids = [];
+    foreach ($products as $product){
+        $temps = $product->reviews()->whereRaw('review like ?', array("%$name%"))->get();
+        for ($x = 0; $x <= (count($temps) - 1); $x++) {
+            $review_ids[] = $temps[$x]['product_id'];
+        }
+    }
+    $arr_freq = array_count_values($review_ids); 
+    arsort($arr_freq);
+    $new_arr = array_keys($arr_freq);
+    $best_product = $new_arr[0];
+    dd($best_product);
 });
 
 route::get('/test2', function(){
-    $product = Product::find(4);
-    $reviews = $product->reviews;
-    dd($reviews);
+    $review = Review::find(3);
+    dd($review['review']);
 });
 
 route::get('/logoutcheck', function(){
@@ -41,8 +54,6 @@ Route::get('/product/{id}/show_reviews', [ProductController::class, 'show_review
 Route::resource('product', ProductController::class);
 
 Route::get('/reviews/{id}/show', [ReviewsController::class, 'show']);
-
-//Route::post('/reviews/{id}/edit', [ReviewsController::class, 'edit']);
 
 Route::get('/reviews/{id}/create', [ReviewsController::class, 'create']);
 Route::get('/reviews/{id}/like', [ReviewsController::class, 'like']);

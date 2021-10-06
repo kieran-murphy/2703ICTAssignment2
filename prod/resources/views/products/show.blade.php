@@ -5,7 +5,7 @@
 @section('content')
     <h1>{{$product->name}}</h1>
     <br>
-    
+    <p>{{url($product->image)}}</p>
     <div class="tablediv">
     <table class="table table-striped table-hover table-bordered">
     <tbody>
@@ -26,6 +26,10 @@
 
         <tr>
         <th>Image</th>
+        <td><img src="{{url($product->image)}}" alt="{{url($product->image)}}" style="width: 300px; height: 300px;"></td>
+        </tr>
+        <tr>
+        <th>Test Image</th>
         <td><img src="{{url($product->image)}}" alt="{{url($product->image)}}" style="width: 300px; height: 300px;"></td>
         </tr>
         
