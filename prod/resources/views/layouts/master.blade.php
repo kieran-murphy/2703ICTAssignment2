@@ -21,6 +21,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link" href="{{url("ask_recommendation")}}">Recommendation</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="">{{Auth::user()->name}} ({{Auth::user()->type}})</a>
         </li>
 

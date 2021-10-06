@@ -3,6 +3,15 @@
     Recommendation
 @endsection
 @section('content')
+    <h1>What are you looking for?</h1>
+    <br>
     
-    
+    <form method="GET" action='{{url("show_recommendation")}}'>
+        {{csrf_field()}}
+        
+        
+        <input type="text" name="search" placeholder="Enter search here">
+        
+        <input type="submit" value="Search">
+        </form>
 @endsection
