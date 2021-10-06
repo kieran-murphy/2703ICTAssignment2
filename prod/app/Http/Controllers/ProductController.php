@@ -62,7 +62,7 @@ class ProductController extends Controller
             'manufacturer' => 'exists:manufacturers,id'
         ]);
 
-        $image_store = request()->file('image')->store('products_images', 'public');
+        $image_store = request()->file('image')->store('/Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/public/products_images');
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;

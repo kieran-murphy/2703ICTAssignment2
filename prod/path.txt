@@ -1,1 +1,2 @@
-ln -s /Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/storage/app/public/products_images public/products_images
+ln -s /Users/kieranmurphy/Documents/Uni/webAppDev/assignment2/prod/public/products_images public/products_images
+

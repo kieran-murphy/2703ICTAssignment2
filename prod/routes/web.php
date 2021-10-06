@@ -51,7 +51,7 @@ Route::get('/reviews/{id}/show', [ReviewsController::class, 'show']);
 //Route::post('/reviews/{id}/edit', [ReviewsController::class, 'edit']);
 
 Route::get('/reviews/{id}/create', [ReviewsController::class, 'create']);
-Route::get('/reviews/{id}/like', [ReviewsController::class, 'like'])->middleware('can:delete_review');
+Route::get('/reviews/{id}/like', [ReviewsController::class, 'like']);
 Route::get('/reviews/{id}/dislike', [ReviewsController::class, 'dislike']);
 
 Route::resource('reviews', ReviewsController::class);
