@@ -14,14 +14,15 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{url("product")}}">Home</a>
         </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{url("ask_recommendation")}}">Recommendation</a>
+        </li>
+        
         @auth
         
         <li class="nav-item">
           <a class="nav-link" href="{{url("product/create")}}">Create</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{url("ask_recommendation")}}">Recommendation</a>
         </li>
 
         <li class="nav-item">

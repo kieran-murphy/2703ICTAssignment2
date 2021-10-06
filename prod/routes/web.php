@@ -71,7 +71,25 @@ route::get('ask_recommendation', function(){
 
 route::get('show_recommendation', function(){
     $search = request('search');
-    return view('products.show_recommendation')->with('search', $search);
+    $products = Product::all();
+    $review_ids = [];
+    foreach ($products as $product){
+        $reviews = $product->reviews()->whereRaw('review like ?', array("%$search%"))->get();
+        for ($x = 0; $x <= (count($reviews) - 1); $x++) {
+            $review_ids[] = $reviews[$x]['product_id'];
+        }
+    }
+    if (count($review_ids) != 0){
+        $arr_freq = array_count_values($review_ids);
+        arsort($arr_freq);
+        $new_arr = array_keys($arr_freq);
+        $best_product_num = $new_arr[0];
+        $best_product = Product::find($best_product_num);
+        return view('products.show_recommendation')->with('search', $search)->with('product', $best_product);
+    } else {
+        return view('products.oops_recommendation');
+    }
+    
 });
 
 require __DIR__.'/auth.php';
