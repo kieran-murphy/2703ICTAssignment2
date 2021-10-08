@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\User;
@@ -68,6 +69,9 @@ Route::get('user/{id}/show_following', [UserController::class, 'show_following']
 Route::get('user/{id}/show_followers', [UserController::class, 'show_followers']);
 Route::resource('user', UserController::class);
 
+Route::get('/follow/{id}/create', [FollowController::class, 'create']);
+Route::resource('follow', FollowController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -75,6 +79,12 @@ Route::get('/dashboard', function () {
 route::get('ask_recommendation', function(){
     return view('products.ask_recommendation');
 });
+
+route::get('documentation', function(){
+    return view('layouts.documentation');
+});
+
+
 
 route::get('show_recommendation', function(){
     $search = request('search');

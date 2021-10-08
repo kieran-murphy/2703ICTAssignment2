@@ -19,10 +19,6 @@ class CreateFollowsTable extends Migration
             $table->integer('followed_id');
             $table->integer('follower_id');
 
-            /*$table->unsignedBigInteger('followed_id');
-            $table->foreign('followed_id')->references('id')->on('users');
-            $table->unsignedBigInteger('followed_id');
-            $table->foreign('follower_id')->references('id')->on('products'); */
         });
     }
 

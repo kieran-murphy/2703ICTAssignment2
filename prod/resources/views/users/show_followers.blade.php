@@ -1,29 +1,28 @@
 @extends('layouts.master')
 @section('title')
-    {{$user->name}}
+    {{$userone->name}}: Followers
 @endsection
 @section('content')
-    <h1>{{$user->name}}</h1>
-    <br>
-    
-    <div class="tablediv">
-    <table class="table table-striped table-hover table-bordered">
-    <tbody>
-        <tr>
-        <th>Role</th>
-        <td>{{$user->type}}</td>
-        </tr>           
-    </tbody>
-    </table>
+
+<h1>{{$userone->name}}: Followers </h1>
+
+<br>
+
+<div class="tablediv">
+    <div class="list-group">
+        @foreach ($followers as $follower)
+            <a href='{{url("user/$follower->follower_id")}}' class="list-group-item list-group-item-action">
+            @foreach($users as $user) 
+                @if ($user->id == $follower->follower_id)
+                    {{$user->name}}
+                @endif
+            @endforeach
+            </a>
+        @endforeach
     </div>
-
-    <br>
-    <h1><a href='{{url("user/$user->id/show_following")}}'>Following</a></h1>
-    <br>
-    <h1><a href='{{url("user/$user->id/show_followers")}}'>Followers</a></h1>
-    
+</div>
+<br>
+{{ $followers->links() }} 
 
 
-    
-    
 @endsection

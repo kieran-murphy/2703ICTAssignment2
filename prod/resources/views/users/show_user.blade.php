@@ -25,7 +25,9 @@
     </table>
     </div>
 
-    
+@auth
+<a href='{{url("follow/$user->id/create")}}'>Follow</a> 
+@endauth
 
     
     

@@ -18,6 +18,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{url("ask_recommendation")}}">Recommendation</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{url("documentation")}}">Documentation</a>
+        </li>
         
         @auth
         

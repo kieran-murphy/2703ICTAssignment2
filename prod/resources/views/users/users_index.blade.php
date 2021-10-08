@@ -10,9 +10,11 @@
 <div class="tablediv">
     <div class="list-group">
         @foreach ($users as $user)
-            <a href='{{url("user/$user->id")}}' class="list-group-item list-group-item-action">{{ $user->name }} {{ $user->id }}</a>
+            <a href='{{url("user/$user->id")}}' class="list-group-item list-group-item-action">{{ $user->name }}</a>
         @endforeach
     </div>
 </div>
+
+
 
 @endsection

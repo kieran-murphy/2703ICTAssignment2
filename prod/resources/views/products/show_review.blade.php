@@ -6,7 +6,7 @@
 
 @foreach ($users as $user)
     @if ($user->id == $review->user_id)
-        <h1><a href='{{url("product/$review->product_id/show_reviews")}}'><- </a>{{$user->name}}</h1>
+        <h1><a href='{{url("product/$review->product_id/show_reviews")}}'><- </a><a href='{{url("user/$user->id")}}'>{{$user->name}}</a></h1>
     @endif 
 @endforeach
     <br>

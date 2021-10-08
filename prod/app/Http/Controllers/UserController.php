@@ -53,8 +53,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $follows = Follow::where('follower_id', '=', $id)->paginate(5);
-        $followers = Follow::where('followed_id', '=', $id)->paginate(5);
+        $follows = Follow::where('follower_id', '=', $id)->paginate(100);
+        $followers = Follow::where('followed_id', '=', $id)->paginate(100);
         return view('users.show_user')->with('user', $user)->with('follows', $follows)->with('followers', $followers);
     }
 
@@ -96,7 +96,7 @@ class UserController extends Controller
     {
         $userone = User::find($id);
         $users = User::all();
-        $follows = Follow::where('follower_id', '=', $id)->paginate(5);
+        $follows = Follow::where('follower_id', '=', $id)->paginate(100);
         
 
         return view('users.show_following')->with('userone', $userone)->with('users', $users)->with('follows', $follows);
@@ -104,8 +104,9 @@ class UserController extends Controller
 
     public function show_followers($id)
     {
-        $user = User::find($id);
-        $followers = Follow::where('followed_id', '=', $id)->paginate(5);
-        return view('users.show_followers')->with('user', $user)->with('followers', $followers);
+        $users = User::all();
+        $userone = User::find($id);
+        $followers = Follow::where('followed_id', '=', $id)->paginate(100);
+        return view('users.show_followers')->with('userone', $userone)->with('users', $users)->with('followers', $followers);
     }
 }
