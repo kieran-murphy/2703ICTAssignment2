@@ -11,5 +11,5 @@
         <input type="text" name="search" placeholder="Enter search here">
         <input type="submit" value="Search">
     </form>
-    <p>Try some keywords: <i>Fast, Durable, Good, Fast, etc.</i></p>
+    <p>Try some keywords: <i>Fast, Durable, Good, etc.</i></p>
 @endsection

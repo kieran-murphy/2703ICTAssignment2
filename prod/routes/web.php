@@ -25,32 +25,6 @@ use App\Models\Follow;
 Route::get('/', [ProductController::class, 'index']);
 
 
-
-
-route::get('/test', function(){
-    $products = Product::all();
-    $name = 'chamudi';
-    $review_ids = [];
-    foreach ($products as $product){
-        $temps = $product->reviews()->whereRaw('review like ?', array("%$name%"))->get();
-        for ($x = 0; $x <= (count($temps) - 1); $x++) {
-            $review_ids[] = $temps[$x]['product_id'];
-        }
-    }
-    $arr_freq = array_count_values($review_ids); 
-    arsort($arr_freq);
-    $new_arr = array_keys($arr_freq);
-    $best_product = $new_arr[0];
-    dd($best_product);
-});
-
-route::get('/test2', function(){
-    $id = 2;
-    $user = User::find($id);
-    $follows = Follow::where('followed_id', '=', $id)->paginate(5);
-    dd(count($follows));
-});
-
 route::get('/logoutcheck', function(){
     return view('products.logoutcheck');
 });

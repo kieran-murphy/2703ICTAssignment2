@@ -70,18 +70,18 @@ class ProductsTableSeeder extends Seeder
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Oppo Find 88',
-            'price' => 2222,
-            'url' => 'test.com',
-            'image' => 'products_images/oppo.jpeg',
-            'manufacturer_id' => 3,
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
-        ]);
-        DB::table('products')->insert([
             'name' => 'Nokia 7383',
             'price' => 2222,
             'url' => 'test.com',
             'image' => 'products_images/nokia.jpeg',
+            'manufacturer_id' => 3,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Oppo Find 88',
+            'price' => 2222,
+            'url' => 'test.com',
+            'image' => 'products_images/oppo.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
