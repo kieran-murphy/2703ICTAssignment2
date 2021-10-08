@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     
-<h1>You searched for: <i>{{$search}}</i>, <br> we recommend {{$product->name}}</h1>
+<h1>You searched for: <i>{{$search}}</i>, <br> we recommend <u>{{$product->name}}</u></h1>
 <a href="ask_recommendation">Search again?</a> <br>
     <br>
     <div class="tablediv">
@@ -29,10 +29,7 @@
         <th>Image</th>
         <td><img src="{{url($product->image)}}" alt="{{url($product->image)}}" style="width: 300px; height: 300px;"></td>
         </tr>
-        <tr>
-        <th>Test Image</th>
-        <td><img src="{{url($product->image)}}" alt="{{url($product->image)}}" style="width: 300px; height: 300px;"></td>
-        </tr>
+        
         
     </tbody>
     </table>

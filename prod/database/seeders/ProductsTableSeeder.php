@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'iPad Pro 9',
             'price' => 1234,
             'url' => 'google.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/ipad.jpeg',
             'manufacturer_id' => 1,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Surface 23',
             'price' => 1111,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/surface.jpeg',
             'manufacturer_id' => 2,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
@@ -33,55 +33,55 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Galaxy s50',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/samsung.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s51',
+            'name' => 'Pixel 61',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/pixel.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s52',
+            'name' => 'HTC One m53',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/htc.jpg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s53',
+            'name' => 'One Plus Seventeen',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/oneplus.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s54',
+            'name' => 'iPhone 82 Pro Max',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/iphone.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s55',
+            'name' => 'Oppo Find 88',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/oppo.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Galaxy s56',
+            'name' => 'Nokia 7383',
             'price' => 2222,
             'url' => 'test.com',
-            'image' => 'products_images/default.png',
+            'image' => 'products_images/nokia.jpeg',
             'manufacturer_id' => 3,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);

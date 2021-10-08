@@ -8,10 +8,8 @@
     
     <form method="GET" action='{{url("show_recommendation")}}'>
         {{csrf_field()}}
-        
-        
         <input type="text" name="search" placeholder="Enter search here">
-        
         <input type="submit" value="Search">
-        </form>
+    </form>
+    <p>Try some keywords: <i>Fast, Durable, Good, Fast, etc.</i></p>
 @endsection
