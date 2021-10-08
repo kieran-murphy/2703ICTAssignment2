@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Review;
+use App\Models\Follow;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +44,10 @@ route::get('/test', function(){
 });
 
 route::get('/test2', function(){
-    $review = Review::find(3);
-    dd($review['review']);
+    $id = 2;
+    $user = User::find($id);
+    $follows = Follow::where('followed_id', '=', $id)->paginate(5);
+    dd(count($follows));
 });
 
 route::get('/logoutcheck', function(){
@@ -50,16 +55,18 @@ route::get('/logoutcheck', function(){
 });
 
 Route::get('/product/{id}/show_reviews', [ProductController::class, 'show_reviews']);
-
 Route::resource('product', ProductController::class);
 
 Route::get('/reviews/{id}/show', [ReviewsController::class, 'show']);
-
 Route::get('/reviews/{id}/create', [ReviewsController::class, 'create']);
 Route::get('/reviews/{id}/like', [ReviewsController::class, 'like']);
 Route::get('/reviews/{id}/dislike', [ReviewsController::class, 'dislike']);
 
 Route::resource('reviews', ReviewsController::class);
+
+Route::get('user/{id}/show_following', [UserController::class, 'show_following']);
+Route::get('user/{id}/show_followers', [UserController::class, 'show_followers']);
+Route::resource('user', UserController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

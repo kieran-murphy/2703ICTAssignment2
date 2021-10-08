@@ -22,6 +22,10 @@
         @auth
         
         <li class="nav-item">
+          <a class="nav-link" href="{{url("user")}}">Users</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="{{url("product/create")}}">Create</a>
         </li>
 

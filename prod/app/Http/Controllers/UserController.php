@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Manufacturer;
+use App\Models\Product;
+use App\Models\Review;
+use App\Models\User;
+use App\Models\Follow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -13,7 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.users_index')->with('users', $users);
     }
 
     /**
@@ -45,7 +52,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $follows = Follow::where('follower_id', '=', $id)->paginate(5);
+        $followers = Follow::where('followed_id', '=', $id)->paginate(5);
+        return view('users.show_user')->with('user', $user)->with('follows', $follows)->with('followers', $followers);
     }
 
     /**
@@ -80,5 +90,22 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function show_following($id)
+    {
+        $userone = User::find($id);
+        $users = User::all();
+        $follows = Follow::where('follower_id', '=', $id)->paginate(5);
+        
+
+        return view('users.show_following')->with('userone', $userone)->with('users', $users)->with('follows', $follows);
+    }
+
+    public function show_followers($id)
+    {
+        $user = User::find($id);
+        $followers = Follow::where('followed_id', '=', $id)->paginate(5);
+        return view('users.show_followers')->with('user', $user)->with('followers', $followers);
     }
 }

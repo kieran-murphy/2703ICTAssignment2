@@ -26,13 +26,6 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('products.index')->with('products', $products);
-        /*
-        if(Gate::allows('is-moderator')){
-            dd('success');
-        } else {
-            dd('no');
-        }
-        */
     }
 
     /**
